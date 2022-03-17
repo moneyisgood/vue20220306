@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--
+1、插槽的基本使用<slot></slot>
+2、插槽的默认值<slot>button</slot>
+3、
+-->
+<div id="app">
+    <cpn></cpn>
+    <cpn><i>HAHAHA</i></cpn>
+    <cpn><span>asdf</span></cpn>
+    <cpn><span>asdf</span><i>HAHAHA</i>
+    </cpn>
+</div>
+<template id="cpn">
+    <div>
+        <!--    <div>我是cpn子组件</div>-->
+        <div>我是组件</div>
+        <div>我是组件，哈哈哈哈</div>
+        <slot><button>按钮</button></slot>
+    </div>
+</template>
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:"#app",
+        data:{
+            message:'你好啊'
+        },
+        components:{
+            cpn:{
+                template:'#cpn',
+                data() {
+                    return{
+                        name:'我是cpn组件的name',
+                    }
+                },
+
+            }
+        }
+    })
+</script>
+</body>
+</html>
