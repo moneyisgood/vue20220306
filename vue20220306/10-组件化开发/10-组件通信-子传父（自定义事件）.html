@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--父组件模板-->
+<div id="app">
+<!--    props中如果是驼峰的，则需要使用-分割，并且要小写-->
+    <cpn v-on:item-click="cpnClick"></cpn>
+</div>
+
+<!--子组件模板-->
+<template id="cpn">
+    <div>
+        <button v-for="item in categories" @click="btnClick(item)">
+            {{item.name}}
+        </button>
+    </div>
+
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+    const cpn ={
+        template:'#cpn',
+        data(){
+            return {
+                categories:[
+                    {id:'aaa',name:'热门推荐'},
+                    {id:'bbb',name:'手机数码'},
+                    {id:'ccc',name:'家用家电'},
+                    {id:'ddd',name:'电脑办公'},
+                ]
+            }
+        },
+        methods:{
+            btnClick(item){
+                //console.log(item);
+                //发射
+                this.$emit('item-click',item);
+            }
+        }
+    }
+
+    const app = new Vue({
+        el:"#app",
+        data:{
+            message:'你好啊',
+            info:{
+                name:'why',
+                age:18,
+                height:1.88
+            }
+
+        },components:{
+            cpn
+        },
+        methods:{
+            cpnClick(item){
+                console.log(item)
+            }
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <button @click="anniu('ds',$event)">按钮</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:"#app",
+        data:{
+            message:'你好啊'
+        },
+        methods:{
+            anniu(name,event){
+                console.log(name, event);
+            }
+        }
+    })
+</script>
+<script>
+    const obj1 = new Object()
+    const obj={
+        name:'why',
+        age:18,
+        run:function (){
+            console.log('在奔跑')
+        },
+        eat:function (){
+            console.log('在吃东西')
+        }
+    }
+
+</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <ul>
+        <li v-for="item in letters"> {{item}}</li>
+    </ul>
+    <button @click="btnclick">按钮</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:"#app",
+        data:{
+            message:'你好啊',
+            letters:['a','b','c','d','e']
+        },
+        methods:{
+            btnclick(){
+                //响应式的方法
+                //push()
+                // shirt() 删除数组中的第一个元素
+                //this.letters.shift()
+                // pop()  删除数组中的最后一个元素
+                // unshift() 在数据最前面添加元素
+                //splice()  删除元素。插入元素、替换元素
+                //this.letters.splice(1,2,'qq','ww','ee')
+                //sort()
+                //reverse()
+                //set(要修改的对象，索引值，修改后的值)
+                //Vue.set(this.letters,0,'sdf')
+
+                //通过索引值修改数组中的元素非响应式的： 但是跟响应式的函数一起用时也会生效
+                //this.letters[3] = 'wer'
+            }
+
+        }
+    })
+</script>
+</body>
+</html>

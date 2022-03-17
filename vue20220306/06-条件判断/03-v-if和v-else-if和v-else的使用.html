@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+    <div>{{result}}</div>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el:"#app",
+        data:{
+            message:'你好啊',
+            score:85
+
+        },
+        computed:{
+            result(){
+                let resultMessage
+                if (this.score >= 90){
+                    resultMessage = '优秀'
+                }else if (this.score >= 80){
+                    resultMessage = '良好'
+                }
+                return resultMessage
+            }
+        }
+    })
+</script>
+</body>
+</html>

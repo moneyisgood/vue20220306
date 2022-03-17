@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <my-cpn></my-cpn>
+    <my-cpn></my-cpn>
+</div>
+
+<!-- 1、使用script标签，注意：类型必须是text/x-template-->
+<!--<script type="text/x-template" id="myCpn">
+    <div>
+        <h2>标题</h2>
+        <h2>内容</h2>
+        <h2>内容</h2>
+    </div>
+</script>-->
+<!--2、使用template标签-->
+<template  id="myCpn">
+    <div>
+        <h2>当前计数：{{counter}}</h2>
+        <button v-on:click="add">+</button>
+        <button v-on:click="sub">-</button>
+    </div>
+</template>
+
+<script src="../js/vue.js"></script>
+<script>
+    Vue.component('my-cpn',{
+        template:'#myCpn',
+        data(){
+            return {
+                counter:0
+            }
+        },
+        methods:{
+            add(){
+                this.counter ++
+            },
+            sub(){
+                this.counter --
+            }
+        }
+    })
+    const app = new Vue({
+        el:"#app",
+        data:{
+            message:'你好啊'
+        }
+    })
+</script>
+</body>
+</html>
